@@ -8,10 +8,6 @@ Keyboard shortcut to quickly switch between your .ts, .html, and .scss (or .css)
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
 This extension contributes the following settings:
 
 * `extension.cycle`: cycle through files that only vary by extension
