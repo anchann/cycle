@@ -1,6 +1,6 @@
 # Cycle 🚲
 
-Cycle through the .ts, .html, and .scss files of your component.
+Cycle through the .ts, .html, and .scss files of a component.
 
 ## Features
 
