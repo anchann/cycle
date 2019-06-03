@@ -1,9 +1,10 @@
 {
-    "name": "cycle",
-    "displayName": "Cycle",
+    "name": "powercycle",
+    "repository": "https://github.com/anchann/cycle",
+    "displayName": "PowerCycle",
     "description": "Quickly cycle through files that differ only by their extension.",
     "version": "1.0.0",
-    "publisher": "karsonbraaten",
+    "publisher": "anchann",
     "engines": {
         "vscode": "^1.10.0"
     },
@@ -11,20 +12,45 @@
         "Keymaps"
     ],
     "activationEvents": [
-        "onCommand:extension.cycle"
+        "onCommand:extension.powercycleForward"
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.cycle",
-            "title": "Cycle"
-        }],
-        "keybindings": [{
-            "command": "extension.cycle",
-            "key": "ctrl+ctrl+up",
-            "mac": "cmd+ctrl+up",
-            "when": "editorTextFocus"
-        }]
+        "commands": [
+            {
+                "command": "extension.powercycleForward",
+                "title": "Cycle Through Files in Directory (forward)"
+            },
+            {
+                "command": "extension.powercycleBackward",
+                "title": "Cycle Through Files in Directory (backward)"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.powercycleForward",
+                "key": "ctrl+ctrl+up",
+                "mac": "cmd+ctrl+up",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "extension.powercycleBackward",
+                "key": "ctrl+ctrl+down",
+                "mac": "cmd+ctrl+down",
+                "when": "editorTextFocus"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "PowerCycle configuration",
+            "properties": {
+                "powercycle.regex": {
+                    "type":        ["string"],
+                    "default":     "*",
+                    "description": "Regex to filter filename list through"
+                }
+            }
+        }
     },
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
